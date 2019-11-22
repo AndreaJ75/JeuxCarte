@@ -1,0 +1,34 @@
+@startuml
+
+
+class JeuCartes {
+    cardCollection,
+    maxNbrCard
+}
+
+class Carte {
+    type,
+    cost,
+    nbr
+}
+
+class TerrainCarteType {
+    color,
+    manaNbrPoints
+}
+
+class CreatureCarteType {
+    name,
+    damageNbrPoints,
+    LifeNbrPoints
+}
+
+class SortilegeCarteType {
+    name,
+    explanation
+}
+
+
+
+
+@enduml
