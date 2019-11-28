@@ -1,9 +1,9 @@
-public abstract class Carte {
+public abstract class Card {
     private CardType cardType;
     private Integer cost;
 
 
-    public Carte(CardType cardType, Integer cost) {
+    public Card(CardType cardType, Integer cost) {
         this.cardType = cardType;
         this.cost = cost;
 

@@ -1,17 +1,17 @@
-public class TerrainCarteType extends Carte {
+public class TerrainCardType extends Card {
 
-    private String color;
+    private ColorTerrain color;
     private Integer manaNbrPoints;
 
 
-    public TerrainCarteType(CardType cardType, Integer cost, String color, Integer manaNbrPoints) {
-        super(cardType, cost);
+    public TerrainCardType(CardType cardType, Integer cost, ColorTerrain color, Integer manaNbrPoints) {
+        super(cardType, 0);
         this.color = color;
         this.manaNbrPoints = manaNbrPoints;
     }
 
 
-    public String getColor() {
+    public ColorTerrain getColor() {
         return color;
     }
 

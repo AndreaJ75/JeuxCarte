@@ -1,10 +1,10 @@
 
-public class SortilegeCarteType extends Carte {
+public class SortilegeCardType extends Card {
 
     private String name;
     private String explanation;
 
-    public SortilegeCarteType(CardType cardType, Integer cost, String name, String explanation){
+    public SortilegeCardType(CardType cardType, Integer cost, String name, String explanation){
         super(cardType,cost);
         this.name = name;
         this.explanation = explanation;

@@ -1,25 +1,17 @@
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class JeuCarte {
 
-    private List<Carte> cardCollect;
-    private Integer nbrCarteJeu;
+    private List<Card> cardCollect;
     private Integer nbrCardMax;
 
-    public JeuCarte(List<Carte> cardCollect, Integer nbrCarteJeu, Integer nbrCardMax) {
+    public JeuCarte(List<Card> cardCollect, Integer nbrCardMax) {
         this.cardCollect = cardCollect;
-        this.nbrCarteJeu = nbrCarteJeu;
         this.nbrCardMax = nbrCardMax;
     }
 
-    public List<Carte> getCardCollect() {
+    public List<Card> getCardCollect() {
         return cardCollect;
-    }
-
-    public Integer getNbrCarte() {
-        return nbrCarteJeu;
     }
 
     public Integer getNbrCardMax() {
@@ -30,25 +22,20 @@ public class JeuCarte {
         this.cardCollect = cardCollect;
     }
 
-    public void setNbrCarte(Integer nbrCarte) {
-        this.nbrCarteJeu = nbrCarteJeu;
-    }
-
     public void setNbrCardMax(Integer nbrCardMax) {
         this.nbrCardMax = nbrCardMax;
     }
 
 
-    public void piocherCarte(Carte cartePioch) {
+    public void piocherCarte(Card cardPioch) {
 
         System.out.println(" ************* PIOCHE CARTE  *******************");
-        cardCollect.add(cartePioch);
-        nbrCarteJeu = nbrCarteJeu + 1;
+        cardCollect.add(cardPioch);
 
-        System.out.println("NBR de carte pioché : " + nbrCarteJeu);
+        System.out.println("NBR de carte pioché : " + cardCollect.size() );
 
-        cartePioch.displayCardType();
-        cartePioch.displayCostArgs();
+        cardPioch.displayCardType();
+        cardPioch.displayCostArgs();
     }
 
     public void AfficheJeu(){
@@ -57,25 +44,25 @@ public class JeuCarte {
             cardCollect.get(i).displayCardType();
             cardCollect.get(i).displayCostArgs();
         }
+        System.out.println("Nbr max : " + nbrCardMax);
 
 
     }
 
 
-    public void joueCarte(Carte cartejoue){
+    public void joueCarte(Card cartejoue){
 
         System.out.println("******* AVANT JOUER ********");
-        System.out.println("NBR carte dans le Jeu : " +  nbrCarteJeu);
+        System.out.println("NBR carte dans le Jeu : " +  cardCollect.size());
         cartejoue.displayCardType();
         cartejoue.displayCostArgs();
 
         cardCollect.remove(cartejoue);
-        nbrCarteJeu = nbrCarteJeu - 1 ;
 
         cartejoue = null;
 
         System.out.println("******** APRES JOUER ***********");
-        System.out.println("NBR de carte du jeu : " + nbrCarteJeu);
+        System.out.println("NBR de carte du jeu : " + cardCollect.size());
 
         AfficheJeu();
 
