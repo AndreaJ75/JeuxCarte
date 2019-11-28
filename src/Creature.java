@@ -1,10 +1,10 @@
 
-public class CreatureTypeCard extends Card {
+public class Creature extends Card {
     private String name;
     private Integer damagePointsNbr;
     private Integer lifePointNbr;
 
-    public CreatureTypeCard(CardType cardType, Integer cost, String name, Integer damagePointsNbr, Integer lifePointNbr){
+    public Creature(CardType cardType, Integer cost, String name, Integer damagePointsNbr, Integer lifePointNbr){
         super(cardType, cost);
         this.name = name;
         this.damagePointsNbr = damagePointsNbr;
@@ -27,8 +27,8 @@ public class CreatureTypeCard extends Card {
     public void displayCostArgs() {
         super.displayCostArgs();
 
-        System.out.println("Nom de Créature : " + name + "\n" + "Nbr de points de dégâts : " + damagePointsNbr +
-                "\n" + "Nbr de points de vie : " + lifePointNbr + "\n");
+        System.out.println("Creature Name : " + name + "\n" + "Damage Number of points : " + damagePointsNbr +
+                "\n" + " Life Number of points : " + lifePointNbr + "\n");
 
     }
 

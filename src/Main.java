@@ -6,36 +6,36 @@ public class Main {
     public static void main(String[] args) {
 
 
-        System.out.println(" ************** SIMPLE DISPLAY CARTE DEBUT ***************");
-        Card card1 = new TerrainCardType(CardType.TERRAIN, 3, ColorTerrain.bleu, 2);
+        System.out.println(" ************** SIMPLE CARD DISPLAY  ---- START ***************");
+        Card card1 = new Field(CardType.FIELD, 3, FieldColor.blue, 2);
 
         card1.displayCardType();
         card1.displayCostArgs();
 
 
-        Card card2 = new CreatureTypeCard(CardType.CREATURE, 5, "SylverCrush", 7, 5);
+        Card card2 = new Creature(CardType.CREATURE, 5, "SylverCrush", 7, 5);
 
         card2.displayCardType();
         card2.displayCostArgs();
 
-        Card card3 = new SortilegeCardType(CardType.SORTILEGE, 8, "Dynamolition", "Couvrir de dynamite l'ensemble de la cible");
+        Card card3 = new Curse(CardType.CURSE, 8, "Dynamolition", "Destroy its target covering it with dynamite");
 
         card3.displayCardType();
         card3.displayCostArgs();
 
-        System.out.println(" ************** SIMPLE DISPLAY CARTE FIN FIN  ***************");
+        System.out.println(" ************** SIMPLE CARD DISPLAY ---- END  ***************");
 
-        Card card4 = new TerrainCardType(CardType.TERRAIN, 3, ColorTerrain.rouge, 5);
-        Card card5 = new CreatureTypeCard(CardType.CREATURE, 10, "Vizir", 2, 4);
-        Card card6 = new CreatureTypeCard(CardType.CREATURE, 3, "Sarmonce", 3, 24);
-        Card card7 = new TerrainCardType(CardType.TERRAIN, 3, ColorTerrain.noir, 3);
-        Card card8 = new TerrainCardType(CardType.TERRAIN, 5, ColorTerrain.vert, 1);
-        Card card9 = new SortilegeCardType(CardType.SORTILEGE, 12, "Barkadam", "souffle tel le vent");
-        Card card10 = new SortilegeCardType(CardType.SORTILEGE, 4, "Biskarros", "disparaît et devient invisible");
-        Card card11 = new CreatureTypeCard(CardType.CREATURE, 3, "Baloon", 23, 2);
-        Card card12 = new TerrainCardType(CardType.TERRAIN, 15, ColorTerrain.blanc, 11);
-        Card card13 = new SortilegeCardType(CardType.SORTILEGE, 6, "Steaddy", "fige la cible visé");
-        Card card14 = new SortilegeCardType(CardType.SORTILEGE, 7, "Biznage", "coule la cible visé");
+        Card card4 = new Field(CardType.FIELD, 3, FieldColor.red, 5);
+        Card card5 = new Creature(CardType.CREATURE, 10, "Vizir", 2, 4);
+        Card card6 = new Creature(CardType.CREATURE, 3, "Sarmonce", 3, 24);
+        Card card7 = new Field(CardType.FIELD, 3, FieldColor.black, 3);
+        Card card8 = new Field(CardType.FIELD, 5, FieldColor.green, 1);
+        Card card9 = new Curse(CardType.CURSE, 12, "Barkadam", "Make its owner blow like the wind");
+        Card card10 = new Curse(CardType.CURSE, 4, "Biskarros", "Make its owner become invisible");
+        Card card11 = new Creature(CardType.CREATURE, 3, "Baloon", 23, 2);
+        Card card12 = new Field(CardType.FIELD, 15, FieldColor.white, 11);
+        Card card13 = new Curse(CardType.CURSE, 6, "Steaddy", "Makes its target steady");
+        Card card14 = new Curse(CardType.CURSE, 7, "Biznage", "Sinks its target");
 
         List<Card> cardCollection = new ArrayList<>();
         List<Card> cardsAll = new ArrayList<>();
@@ -56,29 +56,27 @@ public class Main {
         cardsAll.add(card14);
         cardsAll.add(card11);
 
-        JeuCarte cardCollect = new JeuCarte(cardCollection, 10);
+        CardPlayer cardCollect = new CardPlayer(cardCollection, 10);
 
         // * Piocher toutes les cartes jusqu'à arriver au max de carte prévu pour 1 joueur.
-
-        //cardCollect.piocherCarte(carte1);
+        //cardCollect.drawCard(carte1);
 
         System.out.println(" **************************************************** ");
 
         for (Card card : cardsAll) {
-            if (cardCollection.size() < cardCollect.getNbrCardMax()) {
-                cardCollect.piocherCarte(card);
+            if (cardCollection.size() < cardCollect.getMaxCardNbr()) {
+                cardCollect.drawCard(card);
             }
         }
 
         // * Jouer Carte :
-
         //System.out.println("selection d'une carte de collection : " + cardCollection.get(0));
 
         Card firstCard = cardCollection.get(0);
-        cardCollect.joueCarte(firstCard);
+        cardCollect.playCard(firstCard);
 
         if (firstCard == null) {
-            System.out.println("Plus de carte associée");
+            System.out.println("No more linked cards");
         } else {
             firstCard.displayCardType();
         }
@@ -86,7 +84,7 @@ public class Main {
         // * Afficher Jeu-Carte
         System.out.println(" **************************************************** ");
 
-       // cardCollect.AfficheJeu();
+        cardCollect.displayPlayerGame();
 
         System.out.println(" **************************************************** ");
     }

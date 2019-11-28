@@ -1,5 +1,5 @@
 public enum CardType {
-    TERRAIN,
+    FIELD,
     CREATURE,
-    SORTILEGE
+    CURSE
 }
